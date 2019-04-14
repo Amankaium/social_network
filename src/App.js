@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header.js'
 
 const App = () => {
     return (
@@ -23,16 +24,6 @@ const App = () => {
 const Frog = () => {
     return (
         <div> FROOOG! </div>
-    )
-}
-
-const Header = () => {
-    return (
-        <div>
-            <a href="#">Home </a>
-            <a href="#">ToDo </a>
-            <a href="#">Profile </a>
-        </div>
     )
 }
 
