@@ -2,27 +2,38 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div> parent div
+            <Header />
+            <div>first div</div>
+            <div className="App">
+                second one
+                <ul>
+                    <li>first</li>
+                    <li>second</li>
+                    <li>third</li>
+                </ul>
+            </div>
+            <Frog />
+        </div>
     );
-  }
+}
+
+const Frog = () => {
+    return (
+        <div> FROOOG! </div>
+    )
+}
+
+const Header = () => {
+    return (
+        <div>
+            <a href="#">Home </a>
+            <a href="#">ToDo </a>
+            <a href="#">Profile </a>
+        </div>
+    )
 }
 
 export default App;
