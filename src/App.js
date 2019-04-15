@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from './compotents/Header';
-import Navbar from './compotents/Navbar';
-import Profile from './compotents/Profile';
+import Header from './compotents/Header/Header';
+import Navbar from './compotents/Navbar/Navbar';
+import Profile from './compotents/Profile/Profile';
 
 const App = () => {
     return (
@@ -14,6 +14,5 @@ const App = () => {
         </div>
     );
 }
-
 
 export default App;
