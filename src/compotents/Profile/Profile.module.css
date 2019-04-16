@@ -2,3 +2,7 @@
 .item {
     color: rgb(155, 0, 0);
 }
+
+.profileContent {
+    padding: 10px;
+}

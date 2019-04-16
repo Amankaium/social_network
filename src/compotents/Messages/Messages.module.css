@@ -1,0 +1,24 @@
+.messagesContent {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs {
+    padding: 10px;
+}
+
+.dialogs .active {
+    font-weight: 700;
+}
+
+.dialog {
+
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+
+}
