@@ -13,17 +13,12 @@ const ProfileInfo = () => {
     );
 }
 
-const Profile = () => {
-
-    let postData = [
-        {message: 'text of post one', rating: -3},
-        {message: 'cat and dog are pets duh', rating: 21}
-    ]
+const Profile = (props) => {    
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts postData={postData}/>
+            <MyPosts postData={props.postData}/>
         </div>
     );
 }
