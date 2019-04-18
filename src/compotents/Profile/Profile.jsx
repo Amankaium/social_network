@@ -14,10 +14,16 @@ const ProfileInfo = () => {
 }
 
 const Profile = () => {
+
+    let postData = [
+        {message: 'text of post one', rating: -3},
+        {message: 'cat and dog are pets duh', rating: 21}
+    ]
+
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts postData={postData}/>
         </div>
     );
 }

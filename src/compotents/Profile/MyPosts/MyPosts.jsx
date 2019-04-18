@@ -2,7 +2,10 @@ import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Posts/Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {   
+
+    let posts = props.postData.map(post => <Post message={post.message} rating={post.rating}/>);
+
     return (        
         <div className={s.posts}>
             My Posts
@@ -11,9 +14,9 @@ const MyPosts = () => {
                 <button>Add</button>
             </div>
             <div>
+                <hr/>
                 feed
-                <Post message='text of post 1' rating='-3'/>
-                <Post message='cat and dog' rating='21'/>
+                {posts}
             </div>
         </div>      
     );
