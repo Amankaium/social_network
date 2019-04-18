@@ -4,7 +4,7 @@ import Post from './Posts/Post';
 
 const MyPosts = (props) => {   
 
-    let posts = props.postData.map(post => <Post message={post.message} rating={post.rating}/>);
+    let posts = props.posts.map(post => <Post message={post.message} rating={post.rating}/>);
 
     return (        
         <div className={s.posts}>

@@ -12,3 +12,14 @@
 .item a.active {
   font-weight: 700;
 }
+
+.fav {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}
+
+.fav img {
+  width: 50px;
+  border-radius: 15px;
+  border-collapse: collapse;
+}
