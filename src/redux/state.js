@@ -2,9 +2,9 @@ import React from 'react'
 
 let state = {
     posts: [
-        {message: 'text of post one', rating: -3},
-        {message: 'cat and dog are pets duh', rating: 21},
-        {message: '10 hours coding challenge', rating: 147}
+        {id: 1, message: 'text of post one', rating: -3},
+        {id: 2, message: 'cat and dog are pets duh', rating: 21},
+        {id: 3, message: '10 hours coding challenge', rating: 147}
     ],
     
     messages: {
@@ -20,6 +20,16 @@ let state = {
             {id: 3, message: 'U\'d practice more '}
         ]
     }    
+}
+
+export const addPost = (postMessage) => {
+    let newPost = {
+        id: 4,
+        message: postMessage,
+        rating: 0
+    };
+
+    state.posts.push(newPost);
 }
 
 export default state;

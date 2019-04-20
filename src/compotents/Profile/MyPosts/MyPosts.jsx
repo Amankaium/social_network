@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './MyPosts.module.css'
-import Post from './Posts/Post';
+import Post from '../../Posts/Post';
 
 const MyPosts = (props) => {   
 
@@ -9,8 +9,8 @@ const MyPosts = (props) => {
     let postElem = React.createRef();
 
     const someAction = () => {
-        let txt = postElem.current.value           
-        alert(txt);
+        let txt = postElem.current.value;           
+        props.addPost(txt);
     };
 
     return (        
