@@ -3,6 +3,7 @@ import s from './Messages.module.css';
 import {NavLink} from 'react-router-dom'; 
 import Dialog from './Dialog';
 import Message from './Message';
+import NewMessage from './NewMessage';
 
 const Messages = (props) => {
 
@@ -19,6 +20,9 @@ const Messages = (props) => {
             </div>
             <div className={s.messages}>
                 {messageElements}
+            </div>
+            <div>
+                <NewMessage/>
             </div>
         </div>
     );

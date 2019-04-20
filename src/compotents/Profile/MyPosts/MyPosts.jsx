@@ -6,12 +6,19 @@ const MyPosts = (props) => {
 
     let posts = props.posts.map(post => <Post message={post.message} rating={post.rating}/>);
 
+    let postElem = React.createRef();
+
+    const someAction = () => {
+        let txt = postElem.current.value           
+        alert(txt);
+    };
+
     return (        
         <div className={s.posts}>
             My Posts
             <div>
-                <textarea></textarea>
-                <button>Add</button>
+                <textarea ref={postElem}></textarea>
+                <button onClick={someAction}>Add</button>
             </div>
             <div>
                 <hr/>
