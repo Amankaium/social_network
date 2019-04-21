@@ -1,5 +1,4 @@
-import React from 'react';
-import { rerenderEntireTree } from '../render';
+let rerenderEntireTree = () => {}
 
 let state = {
     posts: {
@@ -34,13 +33,17 @@ export const addPost = (postMessage) => {
     };
     state.posts.posts.push(newPost);
     state.posts.postText = '';
-    rerenderEntireTree(state, addPost, postChange);
+    rerenderEntireTree();
 }
 
 export const postChange = (text) => {
     state.posts.postText = text;
-    rerenderEntireTree(state, addPost, postChange);
+    rerenderEntireTree();
 
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
