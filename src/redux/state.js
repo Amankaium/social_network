@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { rerenderEntireTree } from '../render';
 
 let state = {
-    posts: [
-        {id: 1, message: 'text of post one', rating: -3},
-        {id: 2, message: 'cat and dog are pets duh', rating: 21},
-        {id: 3, message: '10 hours coding challenge', rating: 147}
-    ],
+    posts: {
+        posts: [
+            {id: 1, message: 'text of post one', rating: -3},
+            {id: 2, message: 'cat and dog are pets duh', rating: 21},
+            {id: 3, message: '10 hours coding challenge', rating: 147}
+        ],    
+        postText: '',
+    },    
     
     messages: {
         dialogs: [
@@ -28,8 +32,15 @@ export const addPost = (postMessage) => {
         message: postMessage,
         rating: 0
     };
+    state.posts.posts.push(newPost);
+    state.posts.postText = '';
+    rerenderEntireTree(state, addPost, postChange);
+}
 
-    state.posts.push(newPost);
+export const postChange = (text) => {
+    state.posts.postText = text;
+    rerenderEntireTree(state, addPost, postChange);
+
 }
 
 export default state;
