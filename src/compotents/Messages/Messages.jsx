@@ -22,7 +22,10 @@ const Messages = (props) => {
                 {messageElements}
             </div>
             <div>
-                <NewMessage/>
+                <NewMessage
+                    newMessageText={props.messages.newMessageText}
+                    dispatch={props.dispatch}
+                />
             </div>
         </div>
     );

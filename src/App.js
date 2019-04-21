@@ -21,7 +21,9 @@ const App = (props) => {
                         />} />
                     <Route path='/messages'
                         render={() => <Messages
-                            messages={props.store.getState().messages}/>}/>
+                            messages={props.store.getState().messages}
+                            dispatch={props.store.dispatch.bind(props.store)}    
+                        />}/>
 
                     {/* <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>

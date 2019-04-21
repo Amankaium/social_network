@@ -1,16 +1,30 @@
-import React from 'react'
+import React from 'react';
+import {
+        changeMessageTextActionCreator,
+        addMessageActionCreator
+    } from '../../redux/state';
 
-const NewMessage = () => {
+
+const NewMessage = (props) => {
 
     let messageRef = React.createRef()
     
     const addMessage = () => {
-        alert(messageRef.current.value);
+        let txt = messageRef.current.value;
+        props.dispatch(addMessageActionCreator(txt))
+    };
+
+    const changeMessageText = () => {
+        let txt = messageRef.current.value;
+        props.dispatch(changeMessageTextActionCreator(txt));
     };
 
     return (
         <div>
-            <textarea ref={messageRef}></textarea>
+            <textarea
+                ref={messageRef}
+                value={props.newMessageText}
+                onChange={changeMessageText}/>
             <button onClick={addMessage}>Отправить</button>
         </div>
     );
