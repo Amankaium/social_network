@@ -25,33 +25,33 @@ let store = {
         }    
     },
 
-    getState() {
-        return this._state;
-    },
-
     _callSubscriber() {
         console.log('no subscriber');
     },
 
-    addPost(postMessage) {
-        let newPost = {
-            id: 4,
-            message: postMessage,
-            rating: 0
-        };
-        this._state.posts.posts.push(newPost);
-        this._state.posts.postText = '';
-        this._callSubscriber();
+    getState() {
+        return this._state;
     },
-
-    postChange(text) {
-        this._state.posts.postText = text;
-        this._callSubscriber();
-    },
-
+    
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+
+    dispatch(action) { // {type: 'ADD-POST'}
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                id: 4,
+                message: action.postMessage,
+                rating: 0
+            };
+            this._state.posts.posts.push(newPost);
+            this._state.posts.postText = '';
+            this._callSubscriber();
+        } else if (action.type === "POST-CHANGE") {
+            this._state.posts.postText = action.text;
+            this._callSubscriber();    
+        }
+    }
 
 };
 

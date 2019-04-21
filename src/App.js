@@ -17,8 +17,7 @@ const App = (props) => {
                     <Route path='/profile'
                         render={() => <Profile
                             posts={props.store.getState().posts}
-                            addPost={props.store.addPost.bind(props.store)}
-                            postChange={props.store.postChange.bind(props.store)}    
+                            dispatch={props.store.dispatch.bind(props.store)}  
                         />} />
                     <Route path='/messages'
                         render={() => <Messages
