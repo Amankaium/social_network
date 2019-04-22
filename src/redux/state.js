@@ -8,7 +8,6 @@ const ADD_MESSAGE = "ADD-MESSAGE";
 
 
 let store = {
-
     _state: {
         posts: {
             posts: [

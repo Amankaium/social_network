@@ -1,8 +1,16 @@
 const ADD_POST = 'ADD-POST';
 const POST_CHANGE = 'POST-CHANGE';
 
-const postReducer = (state, action) => {
+let initialState = {
+    posts: [
+        {id: 1, message: 'text of post one', rating: -3},
+        {id: 2, message: 'cat and dog are pets duh', rating: 21},
+        {id: 3, message: '10 hours coding challenge', rating: 147}
+    ],    
+    postText: '',
+}
 
+const postReducer = (state=initialState, action) => {
     switch(action.type) {
         case ADD_POST:
             const newPost = {
