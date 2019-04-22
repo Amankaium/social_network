@@ -1,3 +1,6 @@
+import postReducer from "./postReducer";
+import messageReducer from "./messageReducer";
+
 const ADD_POST = 'ADD-POST';
 const POST_CHANGE = 'POST-CHANGE';
 const MESSAGE_CHANGE = "MESSAGE-CHANGE";
@@ -45,43 +48,17 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 4,
-                message: this._state.posts.postText,
-                rating: 0
-            };
-            this._state.posts.posts.push(newPost);
-            this._state.posts.postText = '';
+        
+        this._state.posts = postReducer(
+            this._state.posts, action);
 
-        } else if (action.type === POST_CHANGE) {
-            this._state.posts.postText = action.text; 
-
-        } else if (action.type === MESSAGE_CHANGE) {
-            this._state.messages.newMessageText = action.text;
-            
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.messages.newMessageText    
-            }
-            this._state.messages.messages.push(newMessage);
-            this._state.messages.newMessageText = '';
-        }
+        this._state.messages = messageReducer(
+            this._state.messages, action);
 
         this._callSubscriber();
     }
 
 };
-
-export const addPostActionCreator = () =>
-    ({type: ADD_POST});
-export const postChangeActionCreator = txt =>
-    ({type: POST_CHANGE, text: txt});
-export const addMessageActionCreator = () =>
-    ({type: ADD_MESSAGE});
-export const changeMessageTextActionCreator = txt =>
-    ({type: MESSAGE_CHANGE, text: txt});
 
 export default store;
 window.store = store;

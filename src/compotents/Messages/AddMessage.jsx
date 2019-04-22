@@ -2,7 +2,7 @@ import React from 'react';
 import {
         changeMessageTextActionCreator,
         addMessageActionCreator
-    } from '../../redux/state';
+    } from '../../redux/messageReducer';
 
 
 const NewMessage = (props) => {

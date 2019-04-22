@@ -20,13 +20,14 @@ const Messages = (props) => {
             </div>
             <div className={s.messages}>
                 {messageElements}
-            </div>
-            <div>
                 <AddMessage
                     newMessageText={props.messages.newMessageText}
                     dispatch={props.dispatch}
                 />
             </div>
+            
+                
+            
         </div>
     );
 }

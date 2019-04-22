@@ -1,7 +1,7 @@
 import React from 'react';
 import {
         postChangeActionCreator,
-        addPostActionCreator} from '../../redux/state';
+        addPostActionCreator} from '../../redux/postReducer';
 
 
 const AddPost = (props) => {
