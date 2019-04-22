@@ -44,41 +44,44 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    dispatch(action) { // {type: 'ADD-POST'}
+    dispatch(action) {
         if (action.type === ADD_POST) {
             let newPost = {
                 id: 4,
-                message: action.postMessage,
+                message: this._state.posts.postText,
                 rating: 0
             };
             this._state.posts.posts.push(newPost);
-            this._state.posts.postText = '';            
+            this._state.posts.postText = '';
+
         } else if (action.type === POST_CHANGE) {
-            this._state.posts.postText = action.text;    
+            this._state.posts.postText = action.text; 
+
         } else if (action.type === MESSAGE_CHANGE) {
             this._state.messages.newMessageText = action.text;
+            
         } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 4,
-                message: action.text    
+                message: this._state.messages.newMessageText    
             }
-
             this._state.messages.messages.push(newMessage);
             this._state.messages.newMessageText = '';
         }
+
         this._callSubscriber();
     }
 
 };
 
-export const addPostActionCreator = txt =>
-    ({type: ADD_POST, postMessage: txt});
+export const addPostActionCreator = () =>
+    ({type: ADD_POST});
 export const postChangeActionCreator = txt =>
     ({type: POST_CHANGE, text: txt});
+export const addMessageActionCreator = () =>
+    ({type: ADD_MESSAGE});
 export const changeMessageTextActionCreator = txt =>
     ({type: MESSAGE_CHANGE, text: txt});
-export const addMessageActionCreator = txt =>
-    ({type: ADD_MESSAGE, text: txt});
 
 export default store;
 window.store = store;

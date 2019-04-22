@@ -7,24 +7,21 @@ import {
 
 const NewMessage = (props) => {
 
-    let messageRef = React.createRef()
-    
-    const addMessage = () => {
-        let txt = messageRef.current.value;
-        props.dispatch(addMessageActionCreator(txt))
+    const addMessage = e => {
+        props.dispatch(addMessageActionCreator())
     };
 
-    const changeMessageText = () => {
-        let txt = messageRef.current.value;
+    const changeMessageText = e => {
+        let txt = e.target.value;
         props.dispatch(changeMessageTextActionCreator(txt));
     };
 
     return (
         <div>
             <textarea
-                ref={messageRef}
                 value={props.newMessageText}
-                onChange={changeMessageText}/>
+                onChange={changeMessageText}
+                placeholder="Enter your message"/>
             <button onClick={addMessage}>Отправить</button>
         </div>
     );

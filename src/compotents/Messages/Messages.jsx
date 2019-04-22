@@ -3,7 +3,7 @@ import s from './Messages.module.css';
 import {NavLink} from 'react-router-dom'; 
 import Dialog from './Dialog';
 import Message from './Message';
-import NewMessage from './NewMessage';
+import AddMessage from './AddMessage';
 
 const Messages = (props) => {
 
@@ -22,7 +22,7 @@ const Messages = (props) => {
                 {messageElements}
             </div>
             <div>
-                <NewMessage
+                <AddMessage
                     newMessageText={props.messages.newMessageText}
                     dispatch={props.dispatch}
                 />
